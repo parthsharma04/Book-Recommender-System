@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Book Recommendation System</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    </head>
+    <style>
+        .text-white{
+             color:white
+        }
+    </style>
+    <body style="background-color: black;">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:#00a65a;">
+            <a class="navbar-brand">My Book Recommender</a> 
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/recommend">Recommendation</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="text-white" style="font-size: 50px;">Top 50 Books</h1>
+                </div>
+                {% for i in range(book_name|length) %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card" style="background-color: black;">
+                        <div class="card-body">
+                            <img class="image-fluid" src="{{ image[i] }}" style="height:160px; object-fit:cover;">
+                            <h4 class="text-white">{{ book_name[i] }}</h4>
+                            <h5 class="text-white">{{ author[i] }}</h5>
+                            <p class="text-white">Votes - {{ votes[i] }}</p>
+                            <p class="text-white">Rating - {{ rating[i] | round(2) }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+
+    </body>
+</html>
